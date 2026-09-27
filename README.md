@@ -19,8 +19,8 @@ Book API를 개발하고 Docker, Jenkins, Kubernetes, Argo CD를 연결하며 CI
 - [x] Docker 설치 및 실행 검증
 - [x] GitHub Public 저장소 생성
 - [x] 로컬 Git 저장소 초기화
-- [ ] 프로젝트 기본 파일 작성
-- [ ] Book API v1 구현
+- [x] 프로젝트 기본 파일 작성
+- [x] Book API v1 구현 및 테스트
 - [ ] Docker 이미지 빌드
 - [ ] Jenkins CI 구성
 - [ ] Kubernetes 배포
@@ -35,6 +35,25 @@ Book API를 개발하고 Docker, Jenkins, Kubernetes, Argo CD를 연결하며 CI
 - Orchestration: Kubernetes
 - GitOps: Argo CD
 - Monitoring: Prometheus, Grafana
+
+## Book API v1
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| `GET` | `/books` | 샘플 도서 목록 조회 |
+| `GET` | `/version` | 현재 애플리케이션 버전 확인 |
+| `GET` | `/actuator/health` | 애플리케이션 상태 확인 |
+
+### Local verification
+
+```bash
+./gradlew clean test
+./gradlew bootRun
+
+curl http://localhost:8080/books
+curl http://localhost:8080/version
+curl http://localhost:8080/actuator/health
+```
 
 ## Git Workflow
 
